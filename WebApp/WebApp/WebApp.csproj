@@ -75,47 +75,47 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="finance.aspx" />
+    <Content Include="Pages\Department\Finance\finance.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="hr.aspx" />
-    <Content Include="Images\finance.jpg" />
-    <Content Include="Images\hr.jpg" />
-    <Content Include="login.aspx" />
+    <Content Include="Pages\Department\HR\hr.aspx" />
+    <Content Include="Pages\Department\Finance\finance.jpg" />
+    <Content Include="Pages\Department\HR\hr.jpg" />
+    <Content Include="Pages\login.aspx" />
     <Content Include="Scripts\common.js" />
     <Content Include="Web.config" />
-    <Content Include="welcome.aspx" />
+    <Content Include="Pages\welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="finance.aspx.cs">
+    <Compile Include="Pages\Department\Finance\finance.aspx.cs">
       <DependentUpon>finance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="finance.aspx.designer.cs">
+    <Compile Include="Pages\Department\Finance\finance.aspx.designer.cs">
       <DependentUpon>finance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="hr.aspx.cs">
+    <Compile Include="Pages\Department\HR\hr.aspx.cs">
       <DependentUpon>hr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="hr.aspx.designer.cs">
+    <Compile Include="Pages\Department\HR\hr.aspx.designer.cs">
       <DependentUpon>hr.aspx</DependentUpon>
     </Compile>
-    <Compile Include="login.aspx.cs">
+    <Compile Include="Pages\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="login.aspx.designer.cs">
+    <Compile Include="Pages\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="welcome.aspx.cs">
+    <Compile Include="Pages\welcome.aspx.cs">
       <DependentUpon>welcome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="welcome.aspx.designer.cs">
+    <Compile Include="Pages\welcome.aspx.designer.cs">
       <DependentUpon>welcome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

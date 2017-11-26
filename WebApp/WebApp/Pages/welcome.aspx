@@ -6,7 +6,7 @@
 <head runat="server">
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-    <script src="scripts/common.js"></script>
+    <script src="/scripts/common.js"></script>
     <script>
         $(document).ready(function () {
             createAuthCookie();
@@ -20,8 +20,8 @@
         <div>
             Hello!
             <ul>
-                <li><a href="finance.aspx">Finance</a></li>
-                <li><a href="hr.aspx">HR</a></li>
+                <li><a href="department/finance/finance.aspx">Finance</a></li>
+                <li><a href="department/hr/hr.aspx">HR</a></li>
             </ul>
         </div>
         <br /><br />
