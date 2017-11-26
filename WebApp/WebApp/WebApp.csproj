@@ -79,6 +79,7 @@
     <Content Include="Global.asax" />
     <Content Include="hr.aspx" />
     <Content Include="Images\finance.jpg" />
+    <Content Include="Images\hr.jpg" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\common.js" />
     <Content Include="Web.config" />
