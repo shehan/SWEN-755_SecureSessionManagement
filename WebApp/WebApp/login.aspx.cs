@@ -18,8 +18,7 @@ namespace WebApp
         protected void Login_Click(object sender, EventArgs e)
         {
             if (FormsAuthentication.Authenticate(UserName.Text, UserPass.Text))
-            {
-               // FormsAuthentication.SetAuthCookie(UserName.Text, false);
+            {                
                 FormsAuthentication.RedirectFromLoginPage(UserName.Text, true);
                 //FormsAuthentication.RedirectFromLoginPage(UserName.Text, chkboxPersist.Checked);
             }

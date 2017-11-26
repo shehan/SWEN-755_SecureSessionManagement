@@ -75,14 +75,32 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="finance.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="hr.aspx" />
+    <Content Include="Images\finance.jpg" />
     <Content Include="login.aspx" />
+    <Content Include="Scripts\common.js" />
     <Content Include="Web.config" />
     <Content Include="welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="finance.aspx.cs">
+      <DependentUpon>finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="finance.aspx.designer.cs">
+      <DependentUpon>finance.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="hr.aspx.cs">
+      <DependentUpon>hr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hr.aspx.designer.cs">
+      <DependentUpon>hr.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

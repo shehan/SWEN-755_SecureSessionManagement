@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="welcome.aspx.cs" Inherits="WebApp.welcome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="finance.aspx.cs" Inherits="WebApp.finance" %>
 
 <!DOCTYPE html>
 
@@ -13,18 +13,17 @@
             countdown();
         });
     </script>
-    <title>Company X - Welcome</title>
+    <title>Company X - Finance</title>
 </head>
 <body>
     <form id="form1" runat="server">
+        <center><img src="images/finance.jpg" style="width:50%;height:50%;"/></center>
         <div>
-            Hello!
-            <ul>
-                <li><a href="finance.aspx">Finance</a></li>
-                <li><a href="hr.aspx">HR</a></li>
-            </ul>
+            This is the Finace web page.
         </div>
-        <br /><br />
+        <br />
+        <br />
+        <div><a href="welcome.aspx">Home</a></div>
         <p>Time until automatic logoff:&nbsp;</p>
         <p id="demo"></p>
         <hr />
