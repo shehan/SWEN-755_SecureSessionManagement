@@ -7,6 +7,18 @@
         console.log("cookie created");
     }
 }
+
+function removeAuthCookie() {
+    console.log("removeAuthCookie called");
+    if (document.cookie.indexOf('userAuth=1') != -1) {
+        $.cookie("userAuth", null, { path: '/' });
+        $.removeCookie('userAuth', { path: '/' });
+        console.log("cookie removed");
+    }
+
+    return true;
+}
+
 function countdown() {
     if (document.cookie.indexOf('userAuth=1') != -1) {
 

@@ -11,7 +11,10 @@ namespace WebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.Page.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Pages/unauthorized.aspx");
+            }
         }
     }
 }

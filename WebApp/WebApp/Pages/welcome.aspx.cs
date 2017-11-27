@@ -15,5 +15,10 @@ namespace WebApp
         {
         }
 
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("login.aspx");
+        }
     }
 }
