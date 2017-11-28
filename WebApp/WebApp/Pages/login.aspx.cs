@@ -37,17 +37,26 @@ namespace WebApp
             var user = userList.Find(i => i.Username.Equals(UserName.Text));
             if (user != null && user.Authenticate(UserPass.Text))
             {
-                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
-                    1, user.Username, DateTime.Now, DateTime.Now.AddMinutes(1), true, user.Roles, FormsAuthentication.FormsCookiePath);
-                string hash = FormsAuthentication.Encrypt(ticket);
-                HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
-
-                if (ticket.IsPersistent)
+                if (Application[user.Username] == null)
                 {
-                    cookie.Expires = ticket.Expiration;
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
+                    1, user.Username, DateTime.Now, DateTime.Now.AddMinutes(1), true, user.Roles, FormsAuthentication.FormsCookiePath);
+                    string hash = FormsAuthentication.Encrypt(ticket);
+                    HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+
+                    if (ticket.IsPersistent)
+                    {
+                        cookie.Expires = ticket.Expiration;
+                    }
+                    Application[user.Username] = user.Username;
+                    Session["UserId"] = user.Username;
+                    Response.Cookies.Add(cookie);
+                    Response.Redirect(FormsAuthentication.GetRedirectUrl(user.Username, false));
                 }
-                Response.Cookies.Add(cookie);
-                Response.Redirect(FormsAuthentication.GetRedirectUrl(user.Username, false));
+                else
+                {
+                    Msg.Text = "You are already logged in! Please sign-out to continue.";
+                }
             }
             else
             {

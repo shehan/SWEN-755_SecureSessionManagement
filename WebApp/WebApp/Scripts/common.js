@@ -1,4 +1,35 @@
-﻿function createAuthCookie() {
+﻿function setWindowName() {
+    if (window.location.href.indexOf("tab.aspx") > -1) {
+        return;
+    }
+    var wName = new Date().getTime();
+    if (window.name.length == 0) {
+        var serviceURL = "/UtilService.asmx/SetWindowName";
+        $.ajax({
+            type: "POST",
+            url: serviceURL,
+            data: '{"name":"' + wName + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: OnSuccessCall,
+            error: OnErrorCall
+        });
+    }
+
+    function OnSuccessCall(response) {
+        if (!response.d) {
+            window.location.replace("/pages/tab.aspx");
+        } else {
+            window.name = wName;
+        }
+    }
+
+    function OnErrorCall(response) {
+        alert("Fail!:" + response.status + " " + response.statusText);
+    }
+};
+
+function createAuthCookie() {
     console.log("createAuthCookie called");
     if (document.cookie.indexOf('userAuth=1') == -1) { //cookie does not exist; create it;
         var date = new Date();

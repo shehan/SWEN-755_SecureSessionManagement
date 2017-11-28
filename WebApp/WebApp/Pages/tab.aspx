@@ -3,12 +3,7 @@
 <asp:Content id="myContent" runat="server" ContentPlaceholderId="ContentPlaceHolder1">
 <center>
         <div>
-           <h1>Unauthorized Access!</h1> 
-        </div>
-        <div>
-            <img src="../Images/dancingbanana.gif" /> &nbsp;&nbsp;
-            <img src="../Images/loading.gif" />&nbsp;&nbsp;
-            <img src="../Images/dancingbanana.gif" />
+           <h1>Multiple tabs are not supported!</h1> 
         </div>
         </center>
     </asp:Content>

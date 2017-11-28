@@ -4,18 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Timers;
-using System.Web.Security;
-using System.Threading;
 
 namespace WebApp
 {
-    public partial class welcome : System.Web.UI.Page
+    public partial class Login : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
     }
 }

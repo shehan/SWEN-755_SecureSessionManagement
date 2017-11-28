@@ -27,5 +27,19 @@ namespace WebApp
                 }
             }
         }
+
+        void Session_End(object sender, EventArgs e)
+        {
+            string username = Session["UserId"] as string;
+            if (Application[username] != null)
+            {
+                if (Convert.ToString(Application[username]) == username)
+                {
+                    Session.Clear();
+                    Session.RemoveAll();
+                    Application.Contents.Remove(username);
+                }
+            }
+        }
     }
 }
