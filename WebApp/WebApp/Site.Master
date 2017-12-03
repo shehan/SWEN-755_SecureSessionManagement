@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#"  AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApp.Site" %>
 
 <!DOCTYPE html>
 
@@ -10,27 +10,44 @@
     <title>Company X</title>
     <script>
         $(document).ready(function () {
-            createAuthCookie();
-            countdown();
+            //createAuthCookie();
+            //countdown();
             setWindowName();
         });
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>    
-    <a href="/Pages/welcome.aspx"> <img src="/Images/logo.png" style="width:10%"/></a>
+<body>
+    <a href="/Pages/welcome.aspx">
+        <img src="/Images/logo.png" style="width: 10%" /></a>
     <form id="form1" runat="server">
         <div>
-            <div><asp:LoginName id="LoginName1" runat="server" FormatString ="Signed-in as: {0}" /></div>
+            <div>
+                <asp:LoginName ID="LoginName1" runat="server" FormatString="Signed-in as: {0}" />
+            </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
             <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" OnClientClick="return $.cookie('userAuth', { path: '/Pages' });">Sign-out</asp:LinkButton>
             <br />
             <br />
-            <p>Time until automatic logoff:&nbsp;</p>
-            <p id="demo"></p>
+            <span>Time until automatic logoff:&nbsp;</span>
+            <span id="demo"></span>
             <hr />
+            <script>
+                var timeLeft = <%= Session.Timeout * 60 %>; // seconds
+                self.setInterval(checkTime, 1000);
+                function checkTime() {
+                    timeLeft--;
+                    // Display the result in the element with id="demo"
+                    document.getElementById("demo").innerHTML = timeLeft + 's';
+                    if (timeLeft < 0) 
+                    {
+                      location.reload();
+                    }
+                }
+
+            </script>
         </div>
     </form>
 </body>

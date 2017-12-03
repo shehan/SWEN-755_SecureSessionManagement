@@ -28,6 +28,21 @@ namespace WebApp
             }
         }
 
+        void Application_AcquireRequestState(object sender, EventArgs e)
+        {           
+            if (this.Context.User.Identity.Name == string.Empty
+                && !this.Context.User.Identity.IsAuthenticated)
+            {
+                string username=string.Empty;
+                if (Session !=null)
+                    username = Session["UserId"] as string;
+                Session.Clear();
+                Session.RemoveAll();
+                Application.Contents.Remove(username);
+
+            }
+        }
+
         void Session_End(object sender, EventArgs e)
         {
             string username = Session["UserId"] as string;

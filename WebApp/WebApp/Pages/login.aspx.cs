@@ -40,18 +40,20 @@ namespace WebApp
                 if (Application[user.Username] == null)
                 {
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(
-                    1, user.Username, DateTime.Now, DateTime.Now.AddMinutes(1), true, user.Roles, FormsAuthentication.FormsCookiePath);
+                    1, user.Username, DateTime.Now, DateTime.Now.AddMinutes(1), false, user.Roles, FormsAuthentication.FormsCookiePath);
                     string hash = FormsAuthentication.Encrypt(ticket);
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
-
+                   
                     if (ticket.IsPersistent)
                     {
-                        cookie.Expires = ticket.Expiration;
+                        cookie.Expires = ticket.Expiration;                        
                     }
                     Application[user.Username] = user.Username;
                     Session["UserId"] = user.Username;
+                    Session["UserLoginTime"] = DateTime.Now;
                     Response.Cookies.Add(cookie);
-                    Response.Redirect(FormsAuthentication.GetRedirectUrl(user.Username, false));
+                   // FormsAuthentication.RedirectFromLoginPage(user.Username, false);    
+                Response.Redirect(FormsAuthentication.GetRedirectUrl(user.Username, false));
                 }
                 else
                 {

@@ -12,7 +12,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    This is the login masterpage!
+    Please sign-in to continue.
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
