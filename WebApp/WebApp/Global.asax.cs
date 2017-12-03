@@ -33,12 +33,19 @@ namespace WebApp
             if (this.Context.User.Identity.Name == string.Empty
                 && !this.Context.User.Identity.IsAuthenticated)
             {
-                string username=string.Empty;
-                if (Session !=null)
-                    username = Session["UserId"] as string;
-                Session.Clear();
-                Session.RemoveAll();
-                Application.Contents.Remove(username);
+                try
+                {
+                    string username = string.Empty;
+                    if (Session != null)
+                        username = Session["UserId"] as string;
+                    Session.Clear();
+                    Session.RemoveAll();
+                    Application.Contents.Remove(username);
+                }
+                catch(Exception error)
+                {
+                    Console.WriteLine(error);
+                }
 
             }
         }
